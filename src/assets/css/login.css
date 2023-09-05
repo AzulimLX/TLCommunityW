@@ -1,0 +1,155 @@
+/*首先进行全局限制*/
+*{
+    margin: 0;/*外边距*/
+    padding: 0;
+    box-sizing:border-box;
+}
+input {
+    outline: none;
+}
+
+
+.bigbox {
+    display: flex;
+    height: 100%;
+    background-image: url("TrueLove.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    min-height: 100vh;
+}
+
+.box {
+    width: 1050px;
+    height: 600px;
+    display: flex;
+    position: relative;
+    margin-left: 200px;
+    margin-top: 60px;
+    background: linear-gradient(to right, rgba(206,183,254,.6) 50%, rgba(252, 224, 182, 0.5) 50%);
+
+    border-radius: 8px;
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow: 4px 4px 3px rgba(0,0,0,1);
+}
+
+.pre-box {
+    width: calc(1050px / 2);
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border: 4px;
+    background-color: rgba(206,183,254,.6);
+    box-shadow: 4px 4px 3px rgba(0,0,0,1);
+    transition: 0.3s ease-in-out;
+}
+
+.pre-box h1 {
+    margin-top: 150px;
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 3px rgba(0,0,0,.1);
+}
+
+.pre-box p{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    text-shadow: 4px 4px 3px rgba(0,0,0,.1);
+}
+
+.img-box {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+}
+.img-box img {
+    width: 93%;
+    position: relative;
+    top: -88px;
+    left: 339px;
+
+}
+
+.login-form,
+.register-form{
+    flex:1;
+    height: 100%;
+}
+
+.title-box {
+    height: 300px;
+    line-height: 500px;
+}
+
+.title-box h1 {
+    text-align:center;
+    letter-spacing: 5px;
+}
+
+.el-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.el-form-item {
+    width: 80%;
+
+}
+
+
+
+input:focus {
+
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    margin: 0 7px;
+    line-height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #69b3f0;
+    color:white;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.btn-box p {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.btn-box p {
+    cursor: pointer;
+
+}
+
+:deep(.el-input__wrapper)
+{
+    background: rgba(255,255,255,0.7);
+    height: 40px;
+    margin-bottom: 20px;
+    text-indent: 4px;
+    border: 1px solid #b0cfe9;
+    border-radius: 4px;
+}

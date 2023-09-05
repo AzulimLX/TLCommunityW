@@ -7,16 +7,23 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "aos": "^2.3.4",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
+    "element-plus": "^2.3.7",
+    "pinia": "^2.1.6",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
+    "vue-amap": "^0.5.10",
+    "vue-router": "^4.2.4",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "jquery": "^3.7.0"
   },
   "browserslist": [
     "> 1%",

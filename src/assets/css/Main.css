@@ -1,0 +1,209 @@
+
+/*头部开始*/
+.header{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: burlywood;
+}
+/*头部结束*/
+
+/*头像定位*/
+.header-right {
+    transform: translateX(100%);
+    width: 190px;
+    height: 55px;
+    background-color: #69b3f0;
+    float: right;
+
+}
+
+
+.list05 {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 55px;
+    height: 140px;
+    background: rebeccapurple;
+    z-index: 60;
+}
+.topbtn05:hover + .list05{
+    display: block;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 784px;
+    overflow: hidden;
+    background: linear-gradient(to top,#b0cfe9,transparent 50%);
+}
+.banner>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mxjtalk {
+    position: absolute;
+    width: 59px;
+    height: 269px;
+    left: 150px;
+    top: 143px;
+    z-index: 20;
+}
+
+.mxjtalk>a{
+    display: block;
+    width: 59px;
+    height: 269px;
+    background: url("moxiaoju_talk.png") no-repeat;
+
+    background-size: 100%;
+}
+
+
+/*主体样式*/
+.container {
+    width: 1180px;
+    margin: 43px auto 0;
+}
+
+/*文章样式*/
+.article {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 70px;
+    background-color: rgba(238,238,238);
+    border-radius: 8px;
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.3),
+    -8px -8px 8px rgba(255,255,255,0.7);
+}
+
+/*文章标题*/
+.articleTitle{
+    position: absolute;
+    text-align: center;
+    width: 700px;
+    height: 50px;
+    line-height: 50px;/*上下居中，行高等于高度*/
+    top: 0px;
+    left: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    font-weight: 700;
+    color: #69b3f0;
+    z-index: 20;
+
+    display: block;
+    font-size: 3.0em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+/*文章内容*/
+.articleContent {
+    position: absolute;
+    width: 700px;
+    height: 150px;
+    left: 400px;
+    top: 100px;
+
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-height: 30px;
+    font-size: 20px;
+    color: #777777;
+}
+
+/*文章图片位置*/
+.articleImg {
+    position: absolute;
+    width: 399px;
+    height: 200px;
+    top: 100px;
+    overflow: hidden;
+    background-color: #b0cfe9;
+
+}
+.articleImg img{
+    width: 100%; /* 图片宽度填充容器 */
+    height: 100%; /* 图片高度填充容器 */
+    object-fit: contain; /* 图片适应容器，并裁剪多余部分 */
+}
+
+.articleAuthor {
+    position: absolute;
+    width: 399px;
+    height: 100px;
+    background-color: burlywood;
+}
+
+.test {
+    background-color: #b0cfe9;
+}
+
+
+/*分页条的css*/
+.page {
+    position: absolute;
+    left: 624px;
+}
+
+
+
+
+.topbtn01{
+    position: fixed;
+    right: 1200px;
+    padding-left: 15px;
+    z-index: 100;
+}
+.topbtn01:hover{
+    background: rgb(199,243,246) no-repeat;
+    color: black;
+}
+
+.topbtn02{
+    position: fixed;
+    padding: 15px;
+    right: 1000px;
+    z-index: 100;
+}
+
+.topbtn03{
+    position: fixed;
+    padding: 15px;
+    margin-left: 10px;
+    right: 400px;
+    z-index: 100;
+}
+
+.topbtn04{
+    position: fixed;
+    padding: 15px;
+    margin-left: 10px;
+    right: 200px;
+    z-index: 100;
+}
+
+.topbtn05{
+    position: fixed;
+    padding: 15px;
+    margin-left: 10px;
+    right: 700px;
+    z-index: 100;
+}

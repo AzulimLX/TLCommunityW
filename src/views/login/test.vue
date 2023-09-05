@@ -11,15 +11,27 @@
      <!--显示头像结束-->
 
      <!--显示姓名开始-->
-     <div class="card-name">这里是名字</div>
+     <div class="card-name">{{ spacesInfo.username }}</div>
      <!--显示姓名结束-->
 
      <!--显示简短的个人介绍开始-->
-     <div class="card-content">这里是简介哦</div>
+     <div class="card-content">{{spacesInfo.content}}</div>
      <!--显示简短的个人介绍结束-->
 
      <!--展示拥有平台开始-->
-     <div class="card-go" >这里是平台....吧</div>
+     <div class="card-go" >
+
+       <div class="spaces-bili" >
+
+       </div>
+       <div class="space-github">
+
+       </div>
+       <div class="spaces-csdn">
+
+       </div>
+
+     </div>
      <!--展示拥有平台结束-->
 
    </div>

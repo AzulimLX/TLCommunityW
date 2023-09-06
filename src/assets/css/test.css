@@ -147,9 +147,58 @@
 /*按钮*/
 .flash-button {
     position: absolute;
-    top: 550px;
+    background-color: rgba(0,0,0,0);
+    top: 500px;
     right: 40px;
+    display: inline-block;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.5em; /**改这个*/
+    padding: 0.5em 1em; /*改前面的*/
+    color: rgb(221,210,59);
+    border: 0.15em solid rgb(221,210,59);
+    border-radius: 1em; /**改这个*/
+    transition: 2s;
 }
+.flash-button:before,
+.flash-button:after {
+    content: "";
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba(221,210,59,0.25);
+    transition: 2s;
+}
+.flash-button:before{
+    left: -80%;
+    transform: translate3d(0,5em,0) rotate(-340deg);
+}
+
+.flash-button:after {
+    right: -80%;
+    transform: translate3d(0,5em,0) rotate(390deg);
+
+}
+.flash-button:hover,
+.flash-button:focus {
+    color: white;
+}
+.flash-button:hover:before,
+.flash-button:hover:after,
+.flash-button:focus:before,
+.flash-button:focus:after {
+    transform: none;
+    background-color: rgba(221,210,59,0.75);
+}
+
+
 
 /*平台警告*/
 .spaces-bili {

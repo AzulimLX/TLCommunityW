@@ -21,16 +21,16 @@
      <!--展示拥有平台开始-->
      <div class="card-go" >
 
-       <div class="spaces-bili" >
+       <div class="spaces-bili" v-show="spacesInfo.bili !== null ">
 
        </div>
-       <div class="space-github">
+       <div class="space-github" v-show="spacesInfo.github !== null">
 
        </div>
-       <div class="spaces-csdn">
+       <div class="spaces-csdn" v-show="spacesInfo.csdn !== null">
 
        </div>
-       <div class="spaces-jue">
+       <div class="spaces-jue" v-show="spacesInfo.juejin !== null " >
 
        </div>
 
@@ -65,8 +65,11 @@
 
      <!--其他平台账号结束-->
 
-     <!--提交按钮开始-->
+     <!--提交按钮开始
      <el-button class="flash-button" size="large" type="primary" round>提交</el-button>
+
+     -->
+     <button  @click="update(spacesInfo)" class="flash-button">更新数据</button>
      <!--提交按钮结束-->
 
    </div>
@@ -85,9 +88,11 @@ import Header from "@/views/utils/Header.vue";
 //设置头部结束
 /*头像开始*/
 import {getInfo} from "@/api/NewApi/login";
-import {AllSpaceData} from "@/api/NewApi/spaces";
+import {AllSpaceData, UpdatedData} from "@/api/NewApi/spaces";
 import {useTokenStore} from "@/store/Mytoken";
 import {onMounted, reactive, ref} from "vue";
+import {ElMessage} from "element-plus";
+import {useRouter} from "vue-router/dist/vue-router";
 const userInfo = ref({photo:"",username:""})
 const spacesInfo = ref({author:"",username:"",content:"",bili:"",github:"",csdn:"",microblog:"",zhihu:"",juejin:""})
 const users = reactive({user:'sssss'})
@@ -105,9 +110,28 @@ onMounted(async()=>{
       spacesInfo.value.username = userInfo.value.username
 
     })
+
   }
 })
+const router = useRouter()
+//更新按钮接口
+const update = (data)=>{
+    UpdatedData(data).then(res=>{
+      if (res.data.data === "更新成功")
+      {
 
+        router.go(0)
+        ElMessage({
+          message: "更新内容成功",
+          type: 'success'
+        })
+      }else
+      {
+          ElMessage.error("看来发生了点错误，请稍后重试")
+      }
+
+    })
+}
 
 
 </script>

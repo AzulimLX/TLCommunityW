@@ -30,6 +30,9 @@
        <div class="spaces-csdn">
 
        </div>
+       <div class="spaces-jue">
+
+       </div>
 
      </div>
      <!--展示拥有平台结束-->
@@ -57,7 +60,14 @@
      <div class="self-csdn">个人CSDN平台地址</div>
      <el-input v-model="spacesInfo.csdn" class="input-csdn" placeholder="写下你的csdn空间地址，让更多人认识你吧!"></el-input>
 
+     <div class="self-jue">个人稀土掘金平台地址</div>
+     <el-input v-model="spacesInfo.juejin" class="input-juejin" placeholder="写下你的稀土掘金空间地址，让更多人认识你吧!"></el-input>
+
      <!--其他平台账号结束-->
+
+     <!--提交按钮开始-->
+     <el-button class="flash-button" size="large" type="primary" round>提交</el-button>
+     <!--提交按钮结束-->
 
    </div>
    <!--介绍栏结束-->

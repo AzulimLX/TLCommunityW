@@ -132,8 +132,26 @@
     top: 335px;
     left: 10px;
 }
+.self-jue {
+    position: absolute;
+    top: 375px;
+    left: 10px;
+}
+.input-juejin {
+    position: absolute;
+    width: 700px;
+    top: 400px;
+    left: 10px;
+}
 
-/*六边形警告*/
+/*按钮*/
+.flash-button {
+    position: absolute;
+    top: 550px;
+    right: 40px;
+}
+
+/*平台警告*/
 .spaces-bili {
     position: relative;
     float: left;
@@ -166,6 +184,19 @@
     width: 50px;
     height: 50px;
     background: url('@/assets/images/spacesImg/csdn.png') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    margin-right: 10px;
+    margin-top: 18px;
+}
+.spaces-jue {
+    position: relative;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url('@/assets/images/spacesImg/jue.png') ;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -38,7 +38,7 @@
     top: 210px;
     left: 25px;
     width: 250px;
-    height: 100px;
+    height: 95px;
     background-color: #FFCA22;
     transition: opacity 0.5s ease;
 
@@ -47,8 +47,8 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    line-height: 40px;
+    -webkit-line-clamp: 3;
+    line-height: 30px;
     font-size: 15px;
     color: #777777;
 

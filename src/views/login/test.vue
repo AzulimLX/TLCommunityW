@@ -21,18 +21,11 @@
      <!--展示拥有平台开始-->
      <div class="card-go" >
 
-       <div class="spaces-bili" v-show="spacesInfo.bili !== null ">
 
-       </div>
-       <div class="space-github" v-show="spacesInfo.github !== null">
-
-       </div>
-       <div class="spaces-csdn" v-show="spacesInfo.csdn !== null">
-
-       </div>
-       <div class="spaces-jue" v-show="spacesInfo.juejin !== null " >
-
-       </div>
+       <a class="spaces-bili" :href= spacesInfo.bili v-show="spacesInfo.bili !==null"></a>
+       <a class="space-github" :href="spacesInfo.github" v-show="spacesInfo.github !== null"></a>
+       <a class="spaces-csdn" :href="spacesInfo.csdn" v-show="spacesInfo.csdn !== null"></a>
+       <a class="spaces-jue" :href="spacesInfo.juejin" v-show="spacesInfo.juejin !== null " ></a>
 
      </div>
      <!--展示拥有平台结束-->
@@ -65,10 +58,6 @@
 
      <!--其他平台账号结束-->
 
-     <!--提交按钮开始
-     <el-button class="flash-button" size="large" type="primary" round>提交</el-button>
-
-     -->
      <button  @click="update(spacesInfo)" class="flash-button">更新数据</button>
      <!--提交按钮结束-->
 
@@ -87,7 +76,7 @@ import 'aos/dist/aos.css'
 import Header from "@/views/utils/Header.vue";
 //设置头部结束
 /*头像开始*/
-import {getInfo} from "@/api/NewApi/login";
+import {getInfo, getInfoById} from "@/api/NewApi/login";
 import {AllSpaceData, UpdatedData} from "@/api/NewApi/spaces";
 import {useTokenStore} from "@/store/Mytoken";
 import {onMounted, reactive, ref} from "vue";
@@ -107,7 +96,6 @@ onMounted(async()=>{
     users.user = res.data.data.user
     await AllSpaceData(users.user).then((res)=>{
       spacesInfo.value = res.data.data
-      spacesInfo.value.username = userInfo.value.username
 
     })
 
@@ -119,7 +107,6 @@ const update = (data)=>{
     UpdatedData(data).then(res=>{
       if (res.data.data === "更新成功")
       {
-
         router.go(0)
         ElMessage({
           message: "更新内容成功",

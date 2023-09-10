@@ -151,6 +151,26 @@
     height: 100px;
     background-color: burlywood;
 }
+.articleAuthor-Img {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+.articleAuthor-name {
+    position: absolute;
+    top: 30px;
+    left: 120px;
+    font-size: 30px;
+}
+.articleAuthor-otherSpace {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    z-index: 6;
+}
 
 .test {
     background-color: #b0cfe9;

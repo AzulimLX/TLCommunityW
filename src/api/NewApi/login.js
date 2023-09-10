@@ -25,6 +25,17 @@ export const getInfo =(req)=>{
     })
 }
 
+//根据User获取用户信息
+export const getInfoById = (req)=>{
+    return request({
+        method: "GET",
+        url:"/user/GetById",
+        params:{
+            user:req
+        }
+    })
+}
+
 //刷新token,promise表示异步操作结果对象，
 // 当我们发送异步请求时，返回的就是Promise对象，这里用来拓宽请求的操作
 // （本来直接return回去，现在new一个接住它处理完我们事情后扔出去）
@@ -53,5 +64,6 @@ export const refresh = ()=>{
 export default {
     Nlogin,
     getInfo,
-    refresh
+    refresh,
+    getInfoById
 }

@@ -63,7 +63,10 @@
           <img src="../../assets/images/test.jpg">
         </div>
         <div class="articleAuthor">
-         预备作者头像位置
+          <a href="http://localhost:8080/otherspace" class="articleAuthor-otherSpace"></a>
+          <el-avatar class="articleAuthor-Img" :size="80" :src="blog.photo"/>
+
+          <div class="articleAuthor-name">{{blog.username}}</div>
         </div>
       </div>
     </div>
@@ -80,7 +83,7 @@
                    v-model:current-page="currentPage1"
 
     />
-    <el-button @click="test">测试</el-button>
+    <el-button @click="test" >测试</el-button>
 
   </div>
   </div>

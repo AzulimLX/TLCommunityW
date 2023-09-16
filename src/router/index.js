@@ -35,6 +35,13 @@ const routes = [
         component:()=>import(/*webpackChunkName:'Main'*/'@/views/Map/VueMap.vue')
     },
     {
+      //个人空间
+      path:'/spaces',
+      name:'selfSpaces',
+      mata:{requiresAuth: true},
+      component:()=> import('@/views/spaces/spaces.vue')
+    },
+    {
         //测试页面
         path:'/test',
         name: 'test',

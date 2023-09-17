@@ -163,12 +163,6 @@ import router from "@/router";
             })
             //保存
             store.saveToken(res.data.data)
-
-            console.log(res)
-            console.log(res.data)
-            console.log(res.data.data)
-            console.log(store.token)
-
             router.push(redirectRoute.query.redirect|| "main")
 
           }

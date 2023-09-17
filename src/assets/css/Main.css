@@ -151,17 +151,27 @@
     height: 100px;
     background-color: burlywood;
 }
+
 .articleAuthor-Img {
     position: absolute;
     top: 15px;
     left: 20px;
+}
+.articleAuthor-Img:hover + .articleAuthor-name
+{
+    color: #69b3f0;
 }
 .articleAuthor-name {
     position: absolute;
     top: 30px;
     left: 120px;
     font-size: 30px;
+    cursor: pointer;
 }
+.articleAuthor-name:hover{
+    color: #69b3f0;
+}
+
 .articleAuthor-otherSpace {
     position: absolute;
     top: 15px;
@@ -226,4 +236,7 @@
     margin-left: 10px;
     right: 700px;
     z-index: 100;
+}
+.clickable {
+    cursor:pointer;
 }

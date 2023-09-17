@@ -10,6 +10,18 @@ export const AllSpaceData = (data)=>{
         }
     })
 }
+//获取他人空间信息
+export const OtherSpaceData = (data)=>{
+    return request({
+        method:'GET',
+        url:'/spaces/OtherSpacesData',
+        params:{
+            data
+        }
+    })
+}
+
+
 //更新用户所有空间数据
 export const UpdatedData = (data)=>{
     return request({
@@ -21,5 +33,6 @@ export const UpdatedData = (data)=>{
 
 export default {
     AllSpaceData,
+    OtherSpaceData,
     UpdatedData
 }

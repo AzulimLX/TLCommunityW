@@ -6,7 +6,7 @@
     <!--放置名片开始-->
     <div class="card-box" data-aos="fade-right" data-aos-duration="500">
       <!--显示头像开始-->
-      <el-avatar class="card-avatar" :size="120" shape="circle" fit="fill" :src="userInfo.photo?userInfo.photo:'' "/>
+      <el-avatar class="card-avatar" :size="120" shape="circle" fit="fill" :src="spacesInfo.photo?spacesInfo.photo:'' "/>
       <!--显示头像结束-->
 
       <!--显示姓名开始-->
@@ -54,6 +54,8 @@
 </template>
 
 <script setup>
+import {OtherSpacesIds} from "@/store/OtherSpacesId";
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 //设置头部开始
@@ -67,20 +69,20 @@ import {onMounted, reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
 import {useRouter} from "vue-router/dist/vue-router";
 const userInfo = ref({photo:"",username:""})
-const spacesInfo = ref({author:"",username:"",content:"",bili:"",github:"",csdn:"",microblog:"",zhihu:"",juejin:""})
+const spacesInfo = ref({author:"",username:"",photo:"",content:"",bili:"",github:"",csdn:"",microblog:"",zhihu:"",juejin:""})
 const users = reactive({user:'sssss'})
 /*头像结束*/
 //出现动画
 onMounted(async()=>{
   AOS.init()
+  const ids = OtherSpacesIds().OtherSpacesId
   const res = await getInfo();
   if (res != null)
   {
     userInfo.value = res.data.data
     users.user = res.data.data.user
-    await AllSpaceData(users.user).then((res)=>{
-      spacesInfo.value = res.data.data
-
+    await AllSpaceData(ids).then((ress)=>{
+      spacesInfo.value = ress.data.data
     })
 
   }

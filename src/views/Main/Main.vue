@@ -60,13 +60,13 @@
           {{blog.content}}
         </div>
         <div class="articleImg">
-          <img src="../../assets/images/test.jpg">
+          <img  src="../../assets/images/test.jpg">
         </div>
         <div class="articleAuthor">
-          <a href="http://localhost:8080/otherspace" class="articleAuthor-otherSpace"></a>
-          <el-avatar class="articleAuthor-Img" :size="80" :src="blog.photo"/>
 
-          <div class="articleAuthor-name">{{blog.username}}</div>
+          <el-avatar class="articleAuthor-Img clickable" @click="gotoSpaces(blog.author)" :size="80" :src="blog.photo"/>
+
+          <div class="articleAuthor-name" @click.stop="gotoSpaces(blog.author)">{{blog.username}}</div>
         </div>
       </div>
     </div>
@@ -90,6 +90,19 @@
 </template>
 
 <script setup>
+
+//点击头像跳转
+import  {OtherSpacesIds} from "@/store/OtherSpacesId";
+ const isHovered = false
+const gotoSpaces = (Ids)=>{
+    //存入我的仓库
+    const store = OtherSpacesIds()
+    store.getOtherSpaceId(Ids)
+    router.push("test")
+}
+
+
+
 import Carousel from "@/views/utils/Carousel.vue";
 
 /*头像开始*/
@@ -99,7 +112,6 @@ getInfo().then((res) =>{
   if (res !=null) {
     userInfo.value = res.data.data
   }
-  console.log(useTokenStore().token)
 
 })
 /*头像结束*/
@@ -149,7 +161,6 @@ const refpage = {
 const artList = ref([])
 const loadBlogs = async ()=>{
   let res = await getArticle(pagenation)
-  console.log(res)
   refpage.total = res.data.data.total
   refpage.pageSize = res.data.data.size
   artList.value = res.data.data.records

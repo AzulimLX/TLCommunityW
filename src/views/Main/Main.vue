@@ -2,40 +2,7 @@
 
   <div class="test">
   <!--头部开始-->
-  <div class="header" >
-    <el-button @click="roll" class="topbtn01" color="#E6E6E6" data-aos="fade-down" v-show="showButtons"  >首 页  </el-button>
-    <el-button @click="smoothScroll" class="topbtn02" color="#E6E6E6" data-aos="fade-down" v-show="showButtons" >文章</el-button>
-    <el-button class="topbtn05" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">圣地巡游</el-button>
-    <div class="list05"></div>
-    <el-button class="topbtn03" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">留言板</el-button>
-    <el-button class="topbtn04" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">关于我们</el-button>
-
-    <div class="header-right"
-         data-aos="slide-left"
-         data-aos-anchor-placement="top-bottom"
-         v-show="showButtons"
-    >
-      <el-dropdown class="head">
-          <span>
-          <el-avatar
-              fit="fill" shape="square"  :src="userInfo.photo?userInfo.photo:'' "
-          />
-
-          </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item disabled>Action 4</el-dropdown-item>
-            <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
-
-
-  </div>
+  <Header/>
   <!--头部结束-->
 
   <!--背景图-->
@@ -98,7 +65,7 @@ const gotoSpaces = (Ids)=>{
     //存入我的仓库
     const store = OtherSpacesIds()
     store.getOtherSpaceId(Ids)
-    router.push("test")
+    router.push("otherSpaces")
 }
 
 
@@ -223,6 +190,7 @@ const easeInOutCubic = t => {
 /*尝试文章平稳出现*/
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Header from "@/views/utils/Header.vue";
 
 // ...你的其他代码...
 

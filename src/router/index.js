@@ -42,6 +42,20 @@ const routes = [
       component:()=> import('@/views/spaces/spaces.vue')
     },
     {
+        //留言板弹幕
+        path:'/barrage',
+        name:'barrage',
+        mata: {requiresAuth: true},
+        component:()=> import('@/views/barrage/barrage.vue')
+    },
+    {
+        //查看别人的空间
+        path:'/otherSpaces',
+        name:'barrage',
+        mata: {requiresAuth: true},
+        component:()=>import('@/views/otherSpaces/otherSpaces.vue')
+    },
+    {
         //测试页面
         path:'/test',
         name: 'test',

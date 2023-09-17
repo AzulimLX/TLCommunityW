@@ -5,7 +5,7 @@ import {ElMessage} from "element-plus";
 
 export  const OtherSpacesIds = defineStore('SpacesId',()=>{
 
-    const getSpacesId = ref('')
+    const getSpacesId = ref('error2000')
     //getter
     const OtherSpacesId = computed(()=>{
         return getSpacesId.value

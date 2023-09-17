@@ -86,6 +86,7 @@ const handleCarouselChange = (index) => {
   height: 269px;
   background: url("@/assets/images/moxiaoju_talk.png") no-repeat;
   background-size: 100%;
+  transition: opacity 0.5s ease;
 }
 
 .mxjWord {
@@ -104,6 +105,7 @@ const handleCarouselChange = (index) => {
   height: 120px;
   background: url("@/assets/images/moxiaoju_word.png") no-repeat;
   background-size: 100%;
+  transition: opacity 0.5s ease;
 }
 
 .wztalk {
@@ -122,6 +124,7 @@ const handleCarouselChange = (index) => {
   height: 320px;
   background: url("@/assets/images/wenzhi_talk.png") no-repeat;
   background-size: 100%;
+  transition: opacity 0.5s ease;
 }
 
 .wzWord {
@@ -140,6 +143,7 @@ const handleCarouselChange = (index) => {
   height: 140px;
   background: url("@/assets/images/wenzhi_word.png") no-repeat;
   background-size: 100%;
+  transition: opacity 0.5s ease;
 }
 
 

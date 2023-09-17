@@ -1,0 +1,53 @@
+.text {
+    color: black ;
+    position: fixed  ;
+    right: 0px  ;
+    font-size: 20px ;
+    white-space: nowrap ;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    opacity: 0.5;
+    top: 0px;
+    left: 0px;
+}
+.bottom {
+    width: 100%;
+    height: 77px;
+    background: linear-gradient(#ccc,#4a4a4a);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    line-height: 77px;
+}
+.content {
+    width: 50%;
+    min-width: 200px;
+    height: 37px;
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 16px;
+    padding: 0 10px;
+    outline: none;
+}
+.send {
+    background-color: green;
+    color: #fff;
+    display: inline-block;
+    width: 100px;
+    height: 38px;
+    line-height: 37px;
+    text-align: center;
+    position: relative;
+
+    top: 2px;
+    border-radius: 0px 10px 10px 0px;
+    text-decoration: none;
+    font-family: "Microsoft YaHei";
+}
+

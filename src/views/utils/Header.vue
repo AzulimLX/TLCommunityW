@@ -1,10 +1,9 @@
 <template>
   <div class="header" >
-    <el-button @click="roll" class="topbtn01" color="#E6E6E6" data-aos="fade-down" v-show="showButtons"  >首 页  </el-button>
+    <el-button @click="GOTOMain" class="topbtn01" color="#E6E6E6" data-aos="fade-down" v-show="showButtons"  >首 页  </el-button>
     <el-button @click="smoothScroll" class="topbtn02" color="#E6E6E6" data-aos="fade-down" v-show="showButtons" >文章</el-button>
-    <el-button class="topbtn05" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">圣地巡游</el-button>
-    <div class="list05"></div>
-    <el-button class="topbtn03" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">留言板</el-button>
+    <el-button @click="GOTOMap" class="topbtn05" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">圣地巡游</el-button>
+    <el-button @click="GOTODan" class="topbtn03" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">留言板</el-button>
     <el-button class="topbtn04" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">关于我们</el-button>
 
     <div class="header-right"
@@ -17,11 +16,10 @@
           <el-avatar
               fit="fill" shape="square"  :src="userInfo.photo?userInfo.photo:'' "
           />
-
           </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item divided @click="GOTOSpcaes">个人信息及展示</el-dropdown-item>
             <el-dropdown-item>Action 2</el-dropdown-item>
             <el-dropdown-item>Action 3</el-dropdown-item>
             <el-dropdown-item disabled>Action 4</el-dropdown-item>
@@ -35,8 +33,26 @@
 </template>
 
 <script setup>
+//跳转到主页面
+const GOTOMain = ()=>{
+  router.push("main")
 
+}
 
+//跳转到地图页面
+const GOTOMap = ()=>{
+  router.push("map")
+}
+
+//跳转到留言版
+const GOTODan =()=>{
+  router.push("barrage")
+}
+
+//跳转到个人空间
+const GOTOSpcaes =()=>{
+  router.push("spaces")
+}
 
 /*头像开始*/
 import {getInfo} from "@/api/NewApi/login";
@@ -75,11 +91,7 @@ const logout = async ()=>{
 }
 /*点击滚动开始*/
 //document.documentElement.scrollHeight 为获取整个文档的高度
-const roll = ()=>{
-  console.log(pagenation.page)
-  window.scrollTo(0,850)
 
-}
 
 const smoothScroll =()=>{
   const articleElement = document.getElementById('article-section');

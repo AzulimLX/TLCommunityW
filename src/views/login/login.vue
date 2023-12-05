@@ -2,8 +2,8 @@
   <div class="bigbox">
   <div class="box">
     <div class="pre-box" ref="preRef">
-      <h1>WELCOME</h1>
-      <p>JOIN US!</p>
+      <h1>欢迎访问</h1>
+      <p>这里是兴趣使然的小站</p>
       <div class="img-box">
         <img :src="flag==true?imgList[1]:imgList[0]" alt="">
       </div>
@@ -190,7 +190,7 @@ import router from "@/router";
 
 </script>
 
-<style src="@/assets/css/login.css" scoped>
+<style src="@/assets/css/login/login.css" scoped>
 
 </style>
 

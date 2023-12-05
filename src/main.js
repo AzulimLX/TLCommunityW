@@ -16,6 +16,7 @@ import VueAMap from "vue-amap";
 
 
 
+
 const app =createApp(App).use(jquery).use(VueAMap).use(createPinia()).use(store).use(router).use(ElementPlus,{locale:zh})
 app.mount('#app')
 //配置AOS动态库

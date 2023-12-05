@@ -15,9 +15,12 @@ import {ref, onMounted, getCurrentInstance, reactive} from 'vue';
 
 
 //测试获取弹幕
-import {getAllDan} from "@/api/NewApi/dan";
+import {getAllDan, saveDan} from "@/api/NewApi/dan";
 import async from "async";
 import Header from "@/views/utils/Header.vue";
+import AOS from "aos";
+import {getInfo} from "@/api/NewApi/login";
+import {AllSpaceData} from "@/api/NewApi/spaces";
 
 
 const mask = ref(null);
@@ -25,11 +28,14 @@ const bottom = ref(null);
 const content = ref(null);
 let dataArray = reactive([])
 
-onMounted(() => {
+onMounted(async () => {
   mask.value = document.querySelector('.mask');
   bottom.value = document.querySelector('.bottom');
   content.value = document.querySelector('.content');
-
+  const res = await getInfo();
+  if (res != null) {
+    userInfo.value = res.data.data
+  }
 });
 getAllDan().then(res =>{
   dataArray = JSON.parse(res.data.data);
@@ -67,31 +73,47 @@ getAllDan().then(res =>{
 
 
 //发送弹幕
+const userInfo = ref({photo:"",username:"",user:""})
+//保存的弹幕信息
+const dan = ref({author:"",content:""})
 const sent = () => {
   if (!content.value.value) return alert('请输入弹幕内容，亲')
-  //创建一个div
-  const div = document.createElement('div')
-  //将div加入到mask中
-  mask.value.append(div)
-  //给div设置内容，内容是 用户输入的文字
+  //获取发送人的信息
+  const photo = userInfo.value.photo
+
+  //构建弹幕发送
+  const div = document.createElement('div');
+  mask.value.append(div);
+  div.classList.add('TanText');
   div.innerHTML = content.value.value
-  //给div添加text类名
-  div.classList.add('TanText')
-  //清空文本框
-  content.value.value = ''
-  //重新让文本框获取焦点
+
+  //创建图片
+  const img  = document.createElement('div')
+  //加入div里去
+  div.append(img)
+  //给img设定属性
+  img.classList.add('danImg')
+  img.style.backgroundImage = `url(${require('@/assets/images/'+photo)})`;
+
+  div.insertBefore(img,div.firstChild)
+  dan.value.content = content.value.value
+  //点击发送后清空文本框
+  content.value.value= ''
+  //让文本框重新获取焦点（增强用户体验）
   content.value.focus()
-  //随机生成div的位置
-  //随机数 * 设置div的位置
-  //生成随机数
-  const random = Math.random() * (mask.value.offsetHeight - bottom.value.offsetHeight - div.offsetHeight)
-  div.style.top = random + 'px'
-  //让这个div动起来
-  //平移：transform: translateX()
-  //过度:  transition: all .3s
-  //linear为速度平滑
-  div.style.transition = 'all 10s linear'
-  div.style.transform = `translateX(-${mask.value.offsetWidth}px)`
+
+  const random = Math.random() * (mask.value.offsetHeight - bottom.value.offsetHeight - div.offsetHeight);
+  div.style.top = random + 'px';
+  div.style.transition = 'all 15s linear';
+  div.style.transform = `translateX(-${mask.value.offsetWidth+400}px)`;
+
+  //保存弹幕信息
+  dan.value.author = userInfo.value.user
+
+  saveDan(dan.value).then((res)=>{
+       console.log(res.data.data)
+  })
+
 };
 
 

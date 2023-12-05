@@ -238,7 +238,7 @@ const test = ()=>{
 
 </script>
 
-<style src="@/assets/css/Main.css" scoped>
+<style src="@/assets/css/Main/Main.css" scoped>
 [data-aos="fade-down"] {
   opacity: 0;
   transform: translateY(-20px);

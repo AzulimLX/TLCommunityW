@@ -44,16 +44,30 @@ const routes = [
     {
         //留言板弹幕
         path:'/barrage',
-        name:'barrage',
+        name:'barrages',
         mata: {requiresAuth: true},
         component:()=> import('@/views/barrage/barrage.vue')
     },
     {
         //查看别人的空间
         path:'/otherSpaces',
-        name:'barrage',
+        name:'otherSpaces',
         mata: {requiresAuth: true},
         component:()=>import('@/views/otherSpaces/otherSpaces.vue')
+    },
+    {
+        //添加好友页面
+        path:'/AddFriend',
+        name:'AddFriend',
+        mata: {requiresAuth: true},
+        component:()=>import('@/views/Friends/AddFriend.vue')
+    },
+    {
+        //接收好友通知的页面
+        path:'/AddFriendMsg',
+        name:'AddFriendMsg',
+        mate:{requiresAuth: true},
+        component:()=>import('@/views/AddFriendMsgView/AddFriendMsgView.vue')
     },
     {
         //测试页面

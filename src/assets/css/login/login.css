@@ -12,7 +12,7 @@ input {
 .bigbox {
     display: flex;
     height: 100%;
-    background-image: url("TrueLove.jpg");
+    background-image: url("../TrueLove.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     -webkit-background-size: cover;

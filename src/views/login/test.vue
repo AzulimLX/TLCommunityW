@@ -1,99 +1,61 @@
 <template>
-  <!--头部开始-->
-  <Header/>
-  <!--头部结束-->
-  <div class="body">
-    <!--放置名片开始-->
-    <div class="card-box" data-aos="fade-right" data-aos-duration="500">
-      <!--显示头像开始-->
-      <el-avatar class="card-avatar" :size="120" shape="circle" fit="fill" :src="spacesInfo.photo?spacesInfo.photo:'' "/>
-      <!--显示头像结束-->
-
-      <!--显示姓名开始-->
-      <div class="card-name">{{ spacesInfo.username }}</div>
-      <!--显示姓名结束-->
-
-      <!--显示简短的个人介绍开始-->
-      <div class="card-content">{{spacesInfo.content}}</div>
-      <!--显示简短的个人介绍结束-->
-
-      <!--展示拥有平台开始-->
-      <div class="card-go" >
-
-
-        <a class="spaces-bili" :href= spacesInfo.bili v-show="spacesInfo.bili !==null"></a>
-        <a class="space-github" :href="spacesInfo.github" v-show="spacesInfo.github !== null"></a>
-        <a class="spaces-csdn" :href="spacesInfo.csdn" v-show="spacesInfo.csdn !== null"></a>
-        <a class="spaces-jue" :href="spacesInfo.juejin" v-show="spacesInfo.juejin !== null " ></a>
-
-      </div>
-      <!--展示拥有平台结束-->
-
-    </div>
-    <!--放置名片结束-->
-  <div class="square">
+  <div>
+    <input v-model="searchTerm" placeholder="搜索..." />
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li v-for="item in filteredItems" :key="item.user">{{ item.username}}</li>
     </ul>
   </div>
-  <div class="circle">
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
+
+  <div class="show-box">
+    <el-avatar class="avatar" shape="square" :size="50" :src="squareUrl" />
   </div>
 
 </template>
 
 <script setup>
-import {OtherSpacesIds} from "@/store/OtherSpacesId";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-//设置头部开始
-import Header from "@/views/utils/Header.vue";
-//设置头部结束
-/*头像开始*/
-import {getInfo, getInfoById} from "@/api/NewApi/login";
-import {AllSpaceData, UpdatedData} from "@/api/NewApi/spaces";
-import {useTokenStore} from "@/store/Mytoken";
-import {onMounted, reactive, ref} from "vue";
-import {ElMessage} from "element-plus";
-import {useRouter} from "vue-router/dist/vue-router";
-const userInfo = ref({photo:"",username:""})
-const spacesInfo = ref({author:"",username:"",photo:"",content:"",bili:"",github:"",csdn:"",microblog:"",zhihu:"",juejin:""})
-const users = reactive({user:'sssss'})
-/*头像结束*/
-//出现动画
-onMounted(async()=>{
-  AOS.init()
-  const ids = OtherSpacesIds().OtherSpacesId
-  const res = await getInfo();
-  if (res != null)
-  {
-    userInfo.value = res.data.data
-    users.user = res.data.data.user
-    await AllSpaceData(ids).then((ress)=>{
-      spacesInfo.value = ress.data.data
-    })
+import { reactive, toRefs } from 'vue'
 
-  }
+const state = reactive({
+  circleUrl:
+      'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+  squareUrl:
+      'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
+
 })
 
+const { circleUrl, squareUrl, sizeList } = toRefs(state)
 
 
+import {ref, computed, onMounted} from 'vue';
+import {selectAllUser} from "@/api/NewApi/User";
+
+let list = ref([])
+onMounted(async ()=>{
+  const result = await selectAllUser()
+  list.value = result.data.data
+  console.log(list.value)
+})
+
+const searchTerm = ref('');
+
+const items = ref([
+  { id: 1, name: '苹果' },
+  { id: 1, name: '香蕉' },
+  { id: 3, name: '橙子' },
+  { id: 4, name: '葡萄' },
+]);
+
+const filteredItems = computed(() => {
+  const term = searchTerm.value.toLowerCase();
+  return list.value.filter(item => {
+    const userMatch = item.user.toLowerCase().includes(term);
+    const usernameMatch = item.username.toLowerCase().includes(term);
+    return userMatch || usernameMatch;
+  });
+});
 </script>
 
-
-
-<style src="@/assets/css/test.css" scoped>
+<style src="@/assets/css/test.css">
 
 </style>

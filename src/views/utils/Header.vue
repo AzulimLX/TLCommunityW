@@ -20,9 +20,9 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item divided @click="GOTOSpcaes">个人信息及展示</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item disabled>Action 4</el-dropdown-item>
+            <el-dropdown-item divided @click="GOTOFriend">添加好友</el-dropdown-item>
+            <el-dropdown-item divided @click="GOTOAddFriend">申请通知</el-dropdown-item>
+            <el-dropdown-item divided>Action 4</el-dropdown-item>
             <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -54,6 +54,17 @@ const GOTOSpcaes =()=>{
   router.push("spaces")
 }
 
+/*跳转到添加好友开始*/
+const GOTOFriend = ()=>{
+   router.push("AddFriend")
+}
+/*跳转到添加好友结束*/
+//跳转到好友信息通知
+const GOTOAddFriend = ()=>{
+  router.push("AddFriendMsg")
+}
+
+
 /*头像开始*/
 import {getInfo} from "@/api/NewApi/login";
 const userInfo = ref({photo:"",username:""})
@@ -61,7 +72,7 @@ getInfo().then((res) =>{
   if (res !=null) {
     userInfo.value = res.data.data
   }
-  console.log(useTokenStore().token)
+
 
 })
 /*头像结束*/
@@ -166,7 +177,7 @@ onMounted(() => {
 
 
 
-<style src="@/assets/css/Main.css" scoped>
+<style src="@/assets/css/Main/Main.css" scoped>
 [data-aos="fade-down"] {
   opacity: 0;
   transform: translateY(-20px);

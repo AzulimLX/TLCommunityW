@@ -7,6 +7,13 @@ export const getAllDan =()=>{
     })
 }
 
+export const saveDan = (req)=>{
+    return request({
+        url:"dan/saveDan",
+        method:'POST',
+        data: req
+    })
+}
 
 export default {
     getAllDan

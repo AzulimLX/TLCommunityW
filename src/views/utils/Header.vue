@@ -4,7 +4,7 @@
     <el-button @click="smoothScroll" class="topbtn02" color="#E6E6E6" data-aos="fade-down" v-show="showButtons" >文章</el-button>
     <el-button @click="GOTOMap" class="topbtn05" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">圣地巡游</el-button>
     <el-button @click="GOTODan" class="topbtn03" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">留言板</el-button>
-    <el-button class="topbtn04" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">关于我们</el-button>
+    <el-button @click="GOTOChat" class="topbtn04" color="#E6E6E6" data-aos="fade-down" v-show="showButtons">聊天室</el-button>
 
     <div class="header-right"
          data-aos="slide-left"
@@ -21,11 +21,18 @@
           <el-dropdown-menu>
             <el-dropdown-item divided @click="GOTOSpcaes">个人信息及展示</el-dropdown-item>
             <el-dropdown-item divided @click="GOTOFriend">添加好友</el-dropdown-item>
-            <el-dropdown-item divided @click="GOTOAddFriend">申请通知</el-dropdown-item>
+
+            <el-dropdown-item divided @click="GOTOAddFriend">
+              申请通知
+              <el-badge :value="count" class="" @click="GOTOAddFriend"></el-badge>
+            </el-dropdown-item>
+
+
             <el-dropdown-item divided>Action 4</el-dropdown-item>
             <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
+
       </el-dropdown>
     </div>
 
@@ -33,6 +40,9 @@
 </template>
 
 <script setup>
+import {GetNotReadCount} from "@/api/NewApi/Friends";
+
+
 //跳转到主页面
 const GOTOMain = ()=>{
   router.push("main")
@@ -64,17 +74,15 @@ const GOTOAddFriend = ()=>{
   router.push("AddFriendMsg")
 }
 
+/*跳转到聊天页面*/
+const GOTOChat = ()=>{
+  router.push("chat")
+}
 
 /*头像开始*/
 import {getInfo} from "@/api/NewApi/login";
 const userInfo = ref({photo:"",username:""})
-getInfo().then((res) =>{
-  if (res !=null) {
-    userInfo.value = res.data.data
-  }
 
-
-})
 /*头像结束*/
 import api from '@/api/NewApi/Main.js'
 import {ElMessage, ElMessageBox} from "element-plus";
@@ -139,9 +147,20 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 // ...你的其他代码...
-
-onMounted(() => {
+const count = ref(0)
+onMounted(async () => {
   AOS.init();
+  await getInfo().then((res) =>{
+    if (res !=null) {
+      userInfo.value = res.data.data
+    }
+  })
+
+  //找信息数量
+  if(userInfo.value.photo !== "") {
+    const res = await GetNotReadCount(userInfo.value.user);
+    count.value = res.data.data
+  }
 });
 
 const handleScroll = () => {
@@ -173,6 +192,7 @@ onMounted(() => {
 /*来点头部按钮移动*/
 
 //用户退出按钮结束
+
 </script>
 
 

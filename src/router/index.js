@@ -70,6 +70,13 @@ const routes = [
         component:()=>import('@/views/AddFriendMsgView/AddFriendMsgView.vue')
     },
     {
+        //聊天页面
+        path:'/chat',
+        name: 'chat',
+        mate: {requiresAuth: true},
+        component:()=>import('@/views/chat/chat.vue')
+    },
+    {
         //测试页面
         path:'/test',
         name: 'test',

@@ -23,7 +23,6 @@
       <div class="show-box">
         <el-avatar class="avatar" shape="square" :size="50" :src="item.photo" />
         <div class="avatar-name">{{item.username}}(id: {{item.user}} )</div>
-
       </div>
       <el-button @click="sendAddFriend(item.user)" class = "send_request_button" type="primary" :disabled="item.status === 1">
         申请好友
@@ -59,7 +58,11 @@ onMounted(async ()=>{
   })
  //之后获取该账户所有朋友的账号
    friends.value = await getAllFriends(userInfo.value.user)
-  console.log(friends.value)
+  //创建个数组
+  const friendItem = ref([])
+  friendItem.value = await friends.value.data.data.map(item=>{
+    return item.friendId;
+  })
 
   const result = await selectAllUser()
 
@@ -69,14 +72,20 @@ onMounted(async ()=>{
     {
       sta = 1
     }
-    if (item.user === 'error2000')
+    else if (item.user === 'error2000')
     {
       sta = 1
+    }
+    else if (friendItem.value.includes(item.user))
+    {
+       sta = 1
     }
     return {
       ...item,
       status: sta
     };
+
+
   })
 
 })

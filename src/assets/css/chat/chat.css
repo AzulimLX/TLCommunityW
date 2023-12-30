@@ -1,0 +1,286 @@
+.box {
+    position: relative;
+    height: 750px;
+    width: 1518px;
+    background-color: #69b3f0;
+}
+
+.friends_box {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    top: 70px;
+    left: 140px;
+    border-radius: 20px;
+    background-color: white;
+}
+.top_box {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    border-bottom: 1px solid #99a2aa;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.friends_title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: #99a2aa;
+
+}
+.friends_img {
+    position: absolute;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+}
+.show_friend_box {
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+
+}
+.show_friend {
+    position: relative;
+    width: 300px;
+    height: 60px;
+    border-bottom: 1px solid #99a2aa;
+    border-left: none;
+    border-right: none;
+}
+.friend_Avatar {
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+.friend_name {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    top: -50px;
+    left: 70px;
+}
+.test_box {
+    width: 300px;
+    height: 100px;
+    background-color: #FFCA22;
+}
+.community_box {
+    position: absolute;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  5px 5px 8px #c5c5c5,
+    -5px -5px 8px #fbfbfb;
+    width: 900px;
+    height: 650px;
+    top: 70px;
+    right: 100px;
+
+
+}
+.community_box_top {
+    position: absolute;
+    width: 900px;
+    height: 80px;
+    border-bottom: 1px solid #99a2aa; /* 下边框为2像素宽的黑色实线 */
+    border-top: none; /* 顶边框不显示 */
+    border-left: none; /* 左边框不显示 */
+    border-right: none; /* 右边框不显示 */
+
+
+}
+.community_title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: black;
+    background-color: #FFCA22;
+}
+.community_show {
+    position: absolute;
+    width: 900px;
+    height: 350px;
+    top: 81px;
+    border-bottom: 1px solid #99a2aa; /* 下边框为2像素宽的黑色实线 */
+    border-top: none; /* 顶边框不显示 */
+    border-left: none; /* 左边框不显示 */
+    border-right: none; /* 右边框不显示 */
+}
+.F_messageShow {
+    width: 900px;
+    height: 50px;
+
+    float: left;
+}
+.F_messageShow_img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 40px;
+    float: left;
+}
+.F_messageShow_name {
+    float: left;
+}
+.F_messageShow_content {
+    margin-left: 55px;
+    margin-bottom: 10px;
+    display: inline-block;
+    white-space: pre-wrap; /* 允许内容换行 */
+    float: left;
+}
+
+.F_messageShow_bubble {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -25px;
+    margin-left: 10px;
+    word-break: break-word; /* 在长单词或URL处断行 */
+    max-width: 80%; /* 控制内容的最大宽度 */
+    float: left;
+}
+
+.F_messageShow_bubble::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    border-width: 0px 18px 18px 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    float: left;
+}
+
+.MY_messageShow {
+    width: 900px;
+    height: 50px;
+
+    float: right;
+}
+.MY_messageShow_img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 40px;
+    float: right;
+}
+.MY_messageShow_name {
+    margin-right: 5px;
+    float: right;
+}
+.MY_messageShow_content {
+    margin-right: 55px;
+    margin-bottom: 10px;
+    display: inline-block;
+    float: right;
+    white-space: pre-wrap; /* 允许内容换行 */
+}
+
+.MY_messageShow_bubble {
+    background-color: dodgerblue;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -25px;
+    margin-right: 10px;
+    word-break: break-word; /* 在长单词或URL处断行 */
+    max-width: 80%; /* 控制内容的最大宽度 */
+    float: right;
+}
+
+.MY_messageShow_bubble::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -9px;
+    border-width: 0px 0px 18px 18px;
+    border-style: solid;
+    border-color: transparent transparent transparent dodgerblue ;
+}
+.messageShow_space {
+    width: 900px;
+}
+
+
+
+.community_type {
+    position: absolute;
+    width: 900px;
+    height: 40px;
+    top: 430px;
+    border-bottom: 1px solid #99a2aa; /* 下边框为2像素宽的黑色实线 */
+    border-top: none; /* 顶边框不显示 */
+    border-left: none; /* 左边框不显示 */
+    border-right: none; /* 右边框不显示 */
+}
+.community_photo {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+}
+.community_upload {
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    width: 30px;
+    height: 30px;
+}
+.community_emoji {
+    position: absolute;
+    top: 6px;
+    left: 85px;
+    width: 30px;
+    height: 30px;
+}
+.community_emoji_show {
+    position: absolute;
+    top: -320px;
+}
+.community_inputs {
+    position: absolute;
+    top: 471px;
+    width: 900px;
+    height: 130px;
+
+}
+.community_button {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 80px;
+}
+
+:deep(.el-textarea__inner) {
+    background-color: rgba(224,224,224,0.6);
+    border: none;
+    resize: none;
+}
+
+:deep(.el-input__inner) {
+    background-color: rgba(224,224,224,0.6);
+    border: none;
+    resize: none;
+}
+:deep(.el-textarea){
+    --el-input-focus-border: #c5c5c5;
+    --el-input-focus-border-color: #c5c5c5;
+    border: none;
+}
+/*可设置滚动条颜色*/
+:deep(.el-scrollbar__thumb){
+    background: transparent;
+}

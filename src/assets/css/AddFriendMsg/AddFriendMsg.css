@@ -3,3 +3,60 @@
     height: 661px;
     background-color: #B9DEFF;
 }
+.PageName{
+    position: absolute;
+    top: 110px;
+    left: 723px;
+}
+.result-box {
+    position: absolute;
+    width: 1000px;
+    height: 400px;
+    background-color: #e3c5eb;
+    top: 193px;
+    left: 300px;
+}
+.boxFor {
+    position: relative;
+    width: 700px;
+    height: 70px;
+    margin: 20px;
+    background-color: #69b3f0;
+    left: 100px;
+}
+.avatar {
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+.avatar-name {
+    position: relative;
+    width: 400px;
+    left: 90px;
+    top: -40px;
+}
+.information {
+    position: relative;
+    width: 400px;
+    left: 90px;
+    top: -30px;
+}
+.show-box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Agree {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    right: 90px;
+    top: 25px;
+}
+.disAgree {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    right: 5px;
+    top: 25px;
+}
